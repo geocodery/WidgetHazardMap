@@ -1,0 +1,20 @@
+{
+  "name": "HazardMap2",
+  "label": "Mapa de peligros 2",
+  "2D": true,
+  "3D": false,
+  "platform": "HTML",
+  "version": "1.0",
+  "wabVersion": "1.0",
+  "author": "Roy Yali S.",
+  "description": "HazardMap",
+  "copyright": "Copyright 2018",
+  "license": "http://links.esri.com/solutions/license",
+  "properties": {
+    "inPanel": true,
+    "hasConfig": true,
+    "hasUIFile": true,
+    "supportMultiInstance": false,
+    "keepConfigAfterMapSwitched": false
+  }
+}

@@ -1,0 +1,120 @@
+.HazardMap {
+  color: #ffffff !important;
+  background-color: #205177;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  height: 155px !important;
+  display: block;
+  z-index: 100 !important;
+}
+
+.panelBottom {
+  position: absolute;
+  width: 100%;
+  height: 155px;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  color: #ffffff;
+  padding: 0px;
+}
+
+.HM_panelFooter{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  border-bottom: 1px solid #23556b;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.HM_panelLeft {
+  position: absolute;
+  left: 0px;
+  right: auto;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  background-image: url('images/nav_left.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 10px;
+  opacity: .4;
+}
+
+.HM_panelLeft:hover {
+  opacity: 1;
+  background-size: 16px;
+}
+
+.HM_panelFooterContent {
+  position: absolute;
+  left: 0px;
+  right: 24px;
+  height: 30px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: block;
+}
+
+.HM_panelRight {
+  /*display: none;*/
+  position: absolute;
+  left: auto;
+  right: 24px;
+  width: 34px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  background-image: url('images/nav_right.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 10px;
+  opacity: .4;
+}
+
+.HM_panelClose {
+  position: absolute;
+  left: auto;
+  right: 0px;
+  width: 24px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  /*display: block;*/
+  cursor: pointer;
+  background-image: url('images/x.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 12px;
+}
+
+.panelContainer {
+  position: absolute;
+  top: 30px;
+  bottom: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  background: black;
+  bottom: 0px;
+}
+
+
+.editorClass {
+  width: 100%;
+  height: 220px;
+  padding: 8px;
+  margin: auto;
+}
+
+.mainWindow{
+  background: black;
+}
+
