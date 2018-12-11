@@ -4,11 +4,9 @@ define([
     'jimu/utils',
     'dojo/_base/html',
     'dojo/dom',
-
     "esri/Color",
     "esri/symbols/SimpleMarkerSymbol",
     "esri/symbols/SimpleLineSymbol",
-
     "esri/map",
     "esri/toolbars/draw",
     "esri/toolbars/edit",
@@ -49,7 +47,6 @@ define([
             parser
   ) {
     return declare([BaseWidget], {
-
       baseClass: 'HazardMap',
       name: 'HazardMap',
 
@@ -61,15 +58,13 @@ define([
 
       startup: function() {
         this.inherited(arguments);
-
         self._createToolbar();
         // Importante para que la barra se encuentre abajo
         this.opLayers = this.map.itemInfo.itemData.operationalLayers;
         // Herramientas de edición para el mapa a generarse
         jsapiBundle.toolbars.draw.start = jsapiBundle.toolbars.draw.start +  "<br>Press <b>ALT</b> to enable snapping";
-
         esriConfig.defaults.io.proxyUrl = "/proxy/"; //"/proxy/"
-        esriConfig.defaults.geometryService = new GeometryService("http://geocatmin.ingemmet.gob.pe/arcgis/rest/services/Utilities/Geometry/GeometryServer");
+        esriConfig.defaults.geometryService = new GeometryService("http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/Utilities/Geometry/GeometryServer");
       },
 
       // Ejecuta todo en cuanto se abre el widget
@@ -85,7 +80,6 @@ define([
           this.map.infoWindow.hide();
         }
         this.setPosition();
-
         self._drawTool()
       },
 
@@ -108,25 +102,23 @@ define([
       },
 
       _createToolbar: function(){
-          _viewerMap.on("layers-add-result", self.initEditing);
-
+        _viewerMap.on("layers-add-result", self.initEditing);
       },
 
+      // Agrega los layers del archivo config para su visualizacion y edicion
       _drawTool: function(){
-        var hazardPointLayer = new FeatureLayer("http://geocatmin.ingemmet.gob.pe/arcgis/rest/services/temp/Sistema_peligro_Resiliente/FeatureServer/0", {
-          mode: FeatureLayer.MODE_SNAPSHOT,
-          outFields: ["*"]
-        });
-        var hazardLineLayer = new FeatureLayer("http://geocatmin.ingemmet.gob.pe/arcgis/rest/services/temp/Sistema_peligro_Resiliente/FeatureServer/1", {
-          mode: FeatureLayer.MODE_SNAPSHOT,
-          outFields: ["*"]
-        });
-        var hazardPolygonLayer = new FeatureLayer("http://geocatmin.ingemmet.gob.pe/arcgis/rest/services/temp/Sistema_peligro_Resiliente/FeatureServer/2", {
-          mode: FeatureLayer.MODE_SNAPSHOT,
-          outFields: ["*"]
-        });
-        _viewerMap.addLayers([hazardPointLayer, hazardLineLayer, hazardPolygonLayer]);
-        // _viewerMap.addLayers([hazardLineLayer, hazardPolygonLayer]);
+        layers = self.config.layers;
+        var variables = [];
+        for(i in layers){
+          if(layers[i].edit==true){
+            var variable = new FeatureLayer(layers[i].url, {
+              mode: FeatureLayer.MODE_SNAPSHOT,
+              outFields: ["*"]
+            });
+            variables.push(variable);
+          };
+        };
+        _viewerMap.addLayers(variables);
       },
 
       initEditing: function(e) {
@@ -136,13 +128,12 @@ define([
           return l.layer;
         });
         console.log("layers", layers);
-
         var editToolbar = new Edit(_viewerMap);
         editToolbar.on("deactivate", function(evt) {
             currentLayer.applyEdits(null, [evt.graphic], null);
           });
 
-        // Funcionalidades para cada el dibujo de cada poligono
+        // Funcionalidades de edicion y clicks para cada geometria dibujada
         arrayUtils.forEach(layers, function(layer){
           var editingEneabled = false;
           layer.on("dbl-click", function(evt) {
@@ -205,7 +196,6 @@ define([
             }
         };
 
-
         var params = { settings: settings };
         var myEditor = new Editor(params, "editorDiv");
 
@@ -227,8 +217,19 @@ define([
           snapKey: keys.ALT
         };
         _viewerMap.enableSnapping(options);
-
         myEditor.startup();
+      },
+
+      //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+      // Ejecutar geoproceso
+      _gprunHazardMap: function(printImage, coordsExt){
+        gp = new Geoprocessor(self.config.serviceUrl);
+        console.log(gp);
+        // Establecer los parametros del geoproceso
+        var params = {'input_printImage': printImage,
+                      'input_coordsExt': coordsExt};
+        // se ejecuta el geoproceso
+        gp.submitJob(params, self._completeCallbackHazardMap, self._statusCallbackHazardMap);
       },
 
       _openPrintWidget: function(){

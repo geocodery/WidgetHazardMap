@@ -1,4 +1,5 @@
 {
+  "serviceUrl": "",
   "geocodeService": {
     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
   },
@@ -17,6 +18,25 @@
     "yards": 9037,
     "nauticalMiles": 9030
   },
+  "layers": 
+  [
+    {
+      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/MapServer/0",
+      "name": "GPT_HM_Peligros",
+      "edit": true
+    },
+    {
+      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/MapServer/2",
+      "name": "GPL_HM_Peligros",
+      "edit": true
+    },
+    {
+      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/MapServer/3",
+      "name": "GPO_HM_Peligros",
+      "edit": true
+    }
+  ],
+
   "maxDistance": "80",
   "defaultZoomLevel": 13,
   "tabs": [],
