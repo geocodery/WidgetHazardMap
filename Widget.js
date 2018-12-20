@@ -20,6 +20,7 @@ define([
     "dojo/i18n!esri/nls/jsapi",
     "dojo/_base/array",
     "dojo/keys",
+    "jimu/PanelManager",
     "dojo/parser",
     "dijit/layout/BorderContainer",
     "dijit/layout/ContentPane",
@@ -44,6 +45,7 @@ define([
             jsapiBundle,
             arrayUtils,
             keys,
+            PanelManager,
             parser
   ) {
     return declare([BaseWidget], {
@@ -222,33 +224,38 @@ define([
 
       //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
       // Ejecutar geoproceso
-      _gprunHazardMap: function(printImage, coordsExt){
-        gp = new Geoprocessor(self.config.serviceUrl);
-        console.log(gp);
-        // Establecer los parametros del geoproceso
-        var params = {'input_printImage': printImage,
-                      'input_coordsExt': coordsExt};
-        // se ejecuta el geoproceso
-        gp.submitJob(params, self._completeCallbackHazardMap, self._statusCallbackHazardMap);
-      },
+      // _gprunHazardMap: function(printImage, coordsExt){
+      //   gp = new Geoprocessor(self.config.serviceUrl);
+      //   console.log(gp);
+      //   // Establecer los parametros del geoproceso
+      //   var params = {'input_printImage': printImage,
+      //                 'input_coordsExt': coordsExt};
+      //   // se ejecuta el geoproceso
+      //   gp.submitJob(params, self._completeCallbackHazardMap, self._statusCallbackHazardMap);
+      // },
 
-      _openPrintWidget: function(){
-        var widgetsConfig = this.appConfig.widgetPool.widgets;  
-        var widgetId;  
-        for(var i in widgetsConfig){  
-          if(widgetsConfig[i].name == "Print"){  
-            widgetId = widgetsConfig[i].id;  
-            break;  
-          }  
-        }  
-        var abc = WidgetManager.getInstance().getWidgetsByName("AnchorBarController")[0];  
-        abc.setOpenedIds([widgetId]);  
-        var printWidget;  
-        setTimeout(function(){  
-          printWidget = WidgetManager.getInstance().getWidgetById(widgetId);  
-          console.info(printWidget);  
-        }, 1000);  
-      }
-
+      // _openPrintWidget: function(){
+      //   var widgetsConfig = this.appConfig.widgetPool.widgets;  
+      //   var widgetId;  
+      //   for(var i in widgetsConfig){  
+      //     if(widgetsConfig[i].name == "Print"){  
+      //       widgetId = widgetsConfig[i].id;  
+      //       break;  
+      //     }  
+      //   }  
+      //   var abc = WidgetManager.getInstance().getWidgetsByName("AnchorBarController")[0];  
+      //   abc.setOpenedIds([widgetId]);  
+      //   var printWidget;  
+      //   setTimeout(function(){  
+      //     printWidget = WidgetManager.getInstance().getWidgetById(widgetId);  
+      //     console.info(printWidget);  
+      //   }, 1000);  
+      // },
+      
+      //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+      // Ejecutar geoproceso
+      closeWidget: function(){
+            PanelManager.getInstance().closePanel('HazardMap' + '_panel');
+         }
     });
   });

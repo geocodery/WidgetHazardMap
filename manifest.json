@@ -1,13 +1,13 @@
 {
-  "name": "HazardMap2",
-  "label": "Mapa de peligros 2",
+  "name": "INGEMMET_MapaPeligros",
+  "label": "Mapa de peligros - INGEMMET",
   "2D": true,
   "3D": false,
   "platform": "HTML",
   "version": "1.0",
   "wabVersion": "1.0",
   "author": "Roy Yali S.",
-  "description": "HazardMap",
+  "description": "Edición de mapa de peligros",
   "copyright": "Copyright 2018",
   "license": "http://links.esri.com/solutions/license",
   "properties": {

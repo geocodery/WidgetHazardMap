@@ -32,18 +32,35 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.buttonHandbook{
+  width: 30px;
+  padding-bottom: 5px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  background: url('images/pdf.png') no-repeat 50% 50%;
+}
+
+.buttonClose{
+  width: 30px;
+  padding-bottom: 5px;
+  height: 18px;
+  border: none;
+  cursor: pointer;
+  background: url('images/x.png') no-repeat 50% 50%;
+}
+
 .HM_panelLeft {
   position: absolute;
-  left: 0px;
+  left: 4px;
   right: auto;
   height: 30px;
   line-height: 30px;
   cursor: pointer;
-  background-image: url('images/nav_left.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 10px;
-  opacity: .4;
+  opacity: .5;
 }
 
 .HM_panelLeft:hover {
@@ -53,8 +70,8 @@
 
 .HM_panelFooterContent {
   position: absolute;
-  left: 0px;
-  right: 24px;
+  left: 150px;
+  right: 100px;
   height: 30px;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -62,19 +79,23 @@
 }
 
 .HM_panelRight {
-  /*display: none;*/
   position: absolute;
   left: auto;
-  right: 24px;
-  width: 34px;
+  right: 0px;
+  width: 70px;
   height: 30px;
   line-height: 30px;
   cursor: pointer;
-  background-image: url('images/nav_right.png');
+  /*background-image: url('images/nav_right.png');*/
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 10px;
   opacity: .4;
+}
+
+.HM_panelRight:hover {
+  opacity: 1;
+  background-size: 16px;
 }
 
 .HM_panelClose {
@@ -101,11 +122,6 @@
   height: 100%;
 }
 
-.container {
-  background: black;
-  bottom: 0px;
-}
-
 
 .editorClass {
   width: 100%;
@@ -114,7 +130,13 @@
   margin: auto;
 }
 
+
+/*.container {
+  background: black;
+  bottom: 0px;
+}
+
 .mainWindow{
   background: black;
 }
-
+*/

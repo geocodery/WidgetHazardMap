@@ -1,5 +1,6 @@
 {
   "serviceUrl": "",
+  "handbook": "https://drive.google.com/uc?authuser=0&amp;id=1ZtIICPl8vizTtgfM9wT38P5fC9BWYPoo&amp;export=download",
   "geocodeService": {
     "url": "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer"
   },
@@ -21,18 +22,18 @@
   "layers": 
   [
     {
-      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/MapServer/0",
-      "name": "GPT_HM_Peligros",
+      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/FeatureServer/2",
+      "name": "GPO_HM_Peligros",
       "edit": true
     },
     {
-      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/MapServer/2",
+      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/FeatureServer/1",
       "name": "GPL_HM_Peligros",
       "edit": true
     },
     {
-      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/MapServer/3",
-      "name": "GPO_HM_Peligros",
+      "url": "http://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/temp/SimbologiaPeligros/FeatureServer/0",
+      "name": "GPT_HM_Peligros",
       "edit": true
     }
   ],
