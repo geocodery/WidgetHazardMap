@@ -105,22 +105,23 @@ define([
 
       _createToolbar: function(){
         _viewerMap.on("layers-add-result", self.initEditing);
+        // _viewerMap.on("resize", self.initEditing);
       },
 
       // Agrega los layers del archivo config para su visualizacion y edicion
       _drawTool: function(){
         layers = self.config.layers;
-        var variables = [];
+        self.variables = [];
         for(i in layers){
           if(layers[i].edit==true){
             var variable = new FeatureLayer(layers[i].url, {
               mode: FeatureLayer.MODE_SNAPSHOT,
               outFields: ["*"]
             });
-            variables.push(variable);
+            self.variables.push(variable);
           };
         };
-        _viewerMap.addLayers(variables);
+        _viewerMap.addLayers(self.variables);
       },
 
       initEditing: function(e) {
@@ -129,6 +130,9 @@ define([
         var layers = arrayUtils.map(e.layers, function(l){
           return l.layer;
         });
+        // var layers = arrayUtils.map(self.variables, function(l){
+        //   return l.layer;
+        // });
         console.log("layers", layers);
         var editToolbar = new Edit(_viewerMap);
         editToolbar.on("deactivate", function(evt) {
@@ -172,7 +176,6 @@ define([
 
         templatePicker.startup();
 
-        
         var layerInfos = arrayUtils.map(e.layers, function(l) {
           console.log("l.layer", l.layer);
           return { "featureLayer": l.layer };
@@ -220,6 +223,14 @@ define([
         };
         _viewerMap.enableSnapping(options);
         myEditor.startup();
+
+      },
+
+      removeLyrs: function(){
+        for (var j = 0, k = self.layers.length; j < k; j++) {
+          var currentLayer = _viewerMap.getLayer(_viewerMap.layerIds[j]);
+          _viewerMap.removeLayer(currentLayer);
+        }
       },
 
       //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

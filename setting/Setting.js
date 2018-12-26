@@ -73,9 +73,13 @@ define([
 
       postCreate: function() {
         this.inherited(arguments);
+        console.log("postCreate");
         this.updateTabs();
+        console.log("updateTabs");
         this._initTabs();
+        console.log("_initTabs");
         this._initReport();
+        console.log("_initReport");
         this.nls = lang.mixin(lang.mixin(this.nls, window.jimuNls.units), window.jimuNls.temperature);
         //this.chk_celsius.set('title', this.nls.celsius + "-" + this.nls.kilometers);
         //this.chk_celsius_label.innerHTML = this.nls.celsius + "-" + this.nls.kilometers;
