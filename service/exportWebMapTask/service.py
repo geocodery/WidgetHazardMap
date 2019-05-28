@@ -2,7 +2,7 @@ import sys, os
 # ONLY USE IN GEOPROCESSING SERVICE
 
 # Ruta del servicio
-sys.path.insert(0, r'D:\\aplicativos\\geoprocesos\\exportWebMapTask')
+sys.path.insert(0, r'D:\\aplicaciones\\geoproceso\\exportWebMapTask')
 
 import main
 
@@ -11,7 +11,7 @@ if __name__ == "__main__":
     Format           = arcpy.GetParameterAsText(1)  # DEFINIR ENTRE PNG, PDF, etc.
     Layout_Template  = arcpy.GetParameterAsText(2)  # DEFINIR COMO OPCIONAL Y DEJAR EN BLANCO
 
-    poo = main.HazardMap(Web_Map_as_JSON, Format, Layout_Template)
+    poo = main.exportWebMapTask(Web_Map_as_JSON, Format, Layout_Template)
     poo.main()
 
 

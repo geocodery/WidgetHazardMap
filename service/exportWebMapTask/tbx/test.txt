@@ -1,0 +1,6 @@
+{"layoutOptions":{"titleText":"Simple WebMap JSON example"},"operationalLayers":[{"url":"https://geocatminapp.ingemmet.gob.pe/arcgis/rest/services/Temp/Base_Campo/MapServer","visibility":true}],"exportOptions":{"outputSize":[1500,1500]},"mapOptions":{"extent":{"xmin":-13077000,"ymin":4031000,"xmax":-13023000,"ymax":4053000}},"version":"1.4"}
+
+
+
+
+
