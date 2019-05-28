@@ -2,7 +2,7 @@ import sys
 # ONLY USE IN GEOPROCESSING SERVICE
 
 # Ruta del servicio
-sys.path.insert(0, r'D:\\aplicativos\\geoprocesos\\getLayoutTemplate')
+sys.path.insert(0, r'D:\\aplicaciones\\geoprocesos\\getLayoutTemplate')
 import main
 
 if __name__ == "__main__":

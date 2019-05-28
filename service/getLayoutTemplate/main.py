@@ -1,6 +1,6 @@
 import sys
 # ONLY USE IN GEOPROCESSIN SERVICE
-sys.path.insert(0, r'D:\\aplicativos\\geoprocesos\\getLayoutTemplate')
+sys.path.insert(0, r'D:\\aplicaciones\\geoprocesos\\getLayoutTemplate')
 
 import arcpy
 import json
